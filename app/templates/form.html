@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+
+<body>
+    <div class="col-2 m-auto pt-6 pb-2 text-center">
+        <form name="form" id="form" action="{% if database %}/update/{{database.id}}/{%else%}/create/{% endif %}" method="post">
+            {% csrf_token %}
+            <div class="form-group mt-4">Owner {{form.owner}}</div>
+            <div class="form-group mt-4">Animal Name {{form.animalName}}</div>
+            <div class="form-group mt-4">Breed {{form.breed}}</div>
+            <div class="form-group mt-4">Contact {{form.contact}}</div>
+            <a href="/" class="btn btn-dark">Cancel</a>
+
+            <input type="submit" class="btn btn-primary" value="Save">
+        </form>
+    </div>
+
+</body>
+</html> 
